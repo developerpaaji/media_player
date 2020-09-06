@@ -510,7 +510,6 @@ class _VideoAppLifeCycleObserver extends Object with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    print("change application life cycle $state");
     switch (state) {
       case AppLifecycleState.paused:
         if (!_controller.isBackground) {
@@ -523,7 +522,7 @@ class _VideoAppLifeCycleObserver extends Object with WidgetsBindingObserver {
           _controller.play();
         }
         break;
-      case AppLifecycleState.suspending:
+      case AppLifecycleState.detached:
         _controller.dispose();
         break;
       default:
